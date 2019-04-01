@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class Registration : IRegistration<User>
+    public class Registration 
     {
         public void SendRegesterNotification(User user)
         {
