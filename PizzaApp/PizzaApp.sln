@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Abstract", "Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{53602C78-18D3-4825-A960-B803B0D751A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaAppDataAccess", "PizzaAppDataAccess\PizzaAppDataAccess.csproj", "{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{53602C78-18D3-4825-A960-B803B0D751A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53602C78-18D3-4825-A960-B803B0D751A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53602C78-18D3-4825-A960-B803B0D751A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

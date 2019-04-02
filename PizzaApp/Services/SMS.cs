@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class SMS : IRegistration<User>
-    {            
-        public void SendRegesterNotification(User user)
+    public class SMS : INotification<User>
+    {
+        public void SendNotification(User user)
         {
             throw new NotImplementedException();
         }
+       
     }
 }

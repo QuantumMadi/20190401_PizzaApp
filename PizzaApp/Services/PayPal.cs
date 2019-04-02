@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class PayPal : IPaySystem<Models.Order>
+    public class PayPal : IPaySystem<Order>
     {             
-        public bool Pay(Models.Order order)
+        public bool Pay(Order order)
         {           
             throw new NotImplementedException();
         }

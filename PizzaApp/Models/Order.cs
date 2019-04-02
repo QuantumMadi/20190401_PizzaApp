@@ -10,7 +10,7 @@ namespace Models
     public class Order
     {
         public int Id { get; set; }
-        public User OrderingUser { get; set; }
+        public int OrderingUserId { get; set; }
         public List<Product> Products { get; set; }
         public int OverallPrice { get; set; }
 

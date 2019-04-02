@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class Registration : INotification<User>
+    class TelegramBot : INotification<User>
     {
         public void SendNotification(User user)
         {

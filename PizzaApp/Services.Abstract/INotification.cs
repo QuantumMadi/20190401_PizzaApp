@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Services.Abstract
 {
-    public interface IRegistration<T>
+    public interface INotification<T>
     {
-        void SendRegesterNotification(T user);
+        void SendNotification(T deliveryPoint);
     }
 }
