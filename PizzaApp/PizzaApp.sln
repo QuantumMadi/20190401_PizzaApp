@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaAppDataAccess", "PizzaAppDataAccess\PizzaAppDataAccess.csproj", "{5FFB0EB8-52EF-4679-B0C3-DE6BE3510CC2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E8B7508-5DA0-4436-91B7-4E0E81525599}"
+	ProjectSection(SolutionItems) = preProject
+		DBScripts.txt = DBScripts.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

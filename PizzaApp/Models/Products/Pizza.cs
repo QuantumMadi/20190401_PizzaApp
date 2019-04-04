@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Services.Abstract;
+﻿using Services.Abstract;
 
 namespace Models
 {
     public class Pizza : Product
     {
-            
+            public string Composition { get; set; }
+            public bool ThinDough { get; set; }
     }
 }

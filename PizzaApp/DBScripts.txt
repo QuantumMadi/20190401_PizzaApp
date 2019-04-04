@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[Users]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Address] NVARCHAR(50) NOT NULL, 
+    [Number] NVARCHAR(50) NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Pizzas]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [ThinDough] BIT NULL, 
+    [Composition] NVARCHAR(200) NOT NULL, 
+    [IsExists] BIT NOT NULL, 
+    [Price] INT NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Orders]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [OrderingUserId] INT NOT NULL FOREIGN KEY ([OrderingUserId]) REFERENCES [dbo].[Users] (Id), 
+    [OrderingList] NVARCHAR(100) NOT NULL, 
+    [OverallPrice ] INT NOT NULL,
+	[OrderDateTime] DATETIME NOT NULL
+)

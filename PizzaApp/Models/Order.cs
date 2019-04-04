@@ -1,9 +1,6 @@
 ﻿using Services.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models
 {
@@ -11,16 +8,21 @@ namespace Models
     {
         public int Id { get; set; }
         public int OrderingUserId { get; set; }
-        public List<Product> Products { get; set; }
+        public DateTime OrderDateTime { get; set; }
+        private List<Product> Products;
+        public string OrderingList { get; set; }
         public int OverallPrice { get; set; }
-
-        public void OverallPriceCount()
+        public Order(List<Product> products, int userId)
         {
-            foreach(var product in Products)
+            Products = new List<Product>();
+            OrderingUserId = userId;
+            OrderDateTime = DateTime.Now;
+            Products = products;
+            foreach (var product in Products)
             {
                 OverallPrice += product.Price;
-            }
-
-        }
+                OrderingList += product.Name;
+            }          
+        }      
     }
 }
