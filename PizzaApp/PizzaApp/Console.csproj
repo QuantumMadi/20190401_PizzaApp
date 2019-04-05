@@ -48,5 +48,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{371b8d2b-62ac-47f4-aaec-84d7333316d4}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PizzaAppDataAccess\PizzaAppDataAccess.csproj">
+      <Project>{5ffb0eb8-52ef-4679-b0c3-de6be3510cc2}</Project>
+      <Name>PizzaAppDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{53602c78-18d3-4825-a960-b803b0d751a1}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

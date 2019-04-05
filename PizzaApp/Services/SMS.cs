@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class SMS : INotification<User>
+    public class SMS : INotification<string>
     {
-        public void SendNotification(User user)
+        public void SendNotification(string number)
         {
             throw new NotImplementedException();
         }

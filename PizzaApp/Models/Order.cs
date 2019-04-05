@@ -12,6 +12,7 @@ namespace Models
         private List<Product> Products;
         public string OrderingList { get; set; }
         public int OverallPrice { get; set; }
+        public Order() { }
         public Order(List<Product> products, int userId)
         {
             Products = new List<Product>();

@@ -55,13 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UsersTableDataService_Main.cs" />
+    <Compile Include="TableDataService_AddMethod.cs" />
+    <Compile Include="TableDataService_Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersTableDataService_SupportMethods.cs" />
+    <Compile Include="TableDataService_SupportMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PizzaApp.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PizzaAppDatabaseLocalComp.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PizzaAppDatabaseLocalComp_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>PizzaAppDatabaseLocalComp.mdf</DependentUpon>
     </Content>
     <Content Include="PizzaAppNoteBookDbContext.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -78,7 +86,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PizzaAppDataAccess
 {
-    public partial class UsersTableDataService<T>
+    public partial class TableDataService<T>
     {
         private static PropertyInfo[] GetProperties(ref string command)
         {
@@ -35,11 +35,11 @@ namespace PizzaAppDataAccess
             return propertyInfo;
         }
 
-        private static string CreateSelectCommand()
+        private static string CreateSelectCommand(ref PropertyInfo[] properties)
         {
             string selectCommand = "select ";
             Type type = typeof(T);
-            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public);
+            
             for(int i =0; i < properties.Length - 1; ++i)
             {
                 selectCommand += properties[i];
