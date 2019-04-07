@@ -57,6 +57,10 @@
       <Project>{5ffb0eb8-52ef-4679-b0c3-de6be3510cc2}</Project>
       <Name>PizzaAppDataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services.Abstract\Services.Abstract.csproj">
+      <Project>{5E7FB750-0C79-453E-81F0-E0773DEC724B}</Project>
+      <Name>Services.Abstract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{53602c78-18d3-4825-a960-b803b0d751a1}</Project>
       <Name>Services</Name>

@@ -8,9 +8,10 @@ namespace Services.Abstract
 {
     public abstract class Product
     {
-        public int Id { get; set; }
+        public int Id { get;}
         public string Name { get; set; }
         public int Price { get; set; }
-        bool IsExists { get; set; }
+        public bool IsExists { get; set; }
+        public Product(string name, int price, bool isExist) { Name = name; Price = price; IsExists = isExist; }
     }
 }

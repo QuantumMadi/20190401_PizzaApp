@@ -11,10 +11,11 @@ namespace Services
 {
     public class IntoDBRegistration<T>
     {
-        public delegate bool UserAddNotificationHandler(string number);
+        public delegate void UserAddNotificationHandler(string number);
         public delegate void ProductAddNotificationHandler(string notificationText);
         public event UserAddNotificationHandler SendMessage;
         public event ProductAddNotificationHandler SendNotificationToAdmin;
+
         public IntoDBRegistration(T user, TableDataService<T> usersTable)
         {
             Type type = typeof(T);

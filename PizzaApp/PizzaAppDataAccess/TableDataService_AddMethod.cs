@@ -26,15 +26,22 @@ namespace PizzaAppDataAccess
 
                     foreach (var property in GetProperties(ref dbCommand))
                     {
-                        var propertyParametr = new SqlParameter();
+                        command.CommandText = dbCommand;
+                        if (property.Name != "Id") {
+                            var propertyParametr = new SqlParameter();
+                          
+                            propertyParametr.ParameterName = $"@{property.Name}";
 
-                        propertyParametr.ParameterName = $"@{property}";
+                            if (SqlTypeIdentifier(property.PropertyType) != SqlDbType.Xml)  //заглушка на случай если придет неизвестный тип
+                                propertyParametr.SqlDbType = SqlTypeIdentifier(property.PropertyType);
 
-                        if (SqlTypeIdentifier(property.PropertyType) != SqlDbType.Xml)  //заглушка на случай если придет неизвестный тип
-                            propertyParametr.SqlDbType = SqlTypeIdentifier(property.PropertyType);
-
-                        propertyParametr.SqlValue = property.GetValue(item);
+                            propertyParametr.SqlValue = property.GetValue(item);
+                            command.Parameters.Add(propertyParametr);
+                        }
+                    
                     }
+
+                  
 
                     var affectedRows = command.ExecuteNonQuery();
                     if (affectedRows < 1) throw new Exception("No rows affected");

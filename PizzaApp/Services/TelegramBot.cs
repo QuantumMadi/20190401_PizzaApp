@@ -14,8 +14,9 @@ namespace Services
     {  
         public void SendNotification(string number)
         {
-            TelegramClient telegramClient = new TelegramClient()
-            throw new NotImplementedException();
+            var store = new FileSessionStore();
+            //var client = new TelegramClient();
+           
         }
     }
 }

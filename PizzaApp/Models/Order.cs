@@ -9,21 +9,18 @@ namespace Models
         public int Id { get; set; }
         public int OrderingUserId { get; set; }
         public DateTime OrderDateTime { get; set; }
-        private List<Product> Products;
         public string OrderingList { get; set; }
         public int OverallPrice { get; set; }
         public Order() { }
         public Order(List<Product> products, int userId)
         {
-            Products = new List<Product>();
             OrderingUserId = userId;
             OrderDateTime = DateTime.Now;
-            Products = products;
-            foreach (var product in Products)
+            foreach (var product in products)
             {
+                OrderingList += $"{product.Name},";
                 OverallPrice += product.Price;
-                OrderingList += product.Name;
-            }          
-        }      
+            }
+        }
     }
 }

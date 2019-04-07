@@ -61,26 +61,12 @@
     <Compile Include="TableDataService_SupportMethods.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PizzaApp.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="PizzaAppDatabaseLocalComp.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="PizzaAppDatabaseLocalComp_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PizzaAppDatabaseLocalComp.mdf</DependentUpon>
-    </Content>
-    <Content Include="PizzaAppNoteBookDbContext.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PizzaAppNoteBookDbContext_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>PizzaAppNoteBookDbContext.mdf</DependentUpon>
-    </Content>
-    <Content Include="PizzaApp_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>PizzaApp.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

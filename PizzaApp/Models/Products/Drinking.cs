@@ -9,6 +9,6 @@ namespace Models
 {
     public class Drinking : Product
     {
-
+        public Drinking(string name, int price, bool isExist) : base(name, price, isExist) { }
     }
 }
