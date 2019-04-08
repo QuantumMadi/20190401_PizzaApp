@@ -39,10 +39,7 @@ namespace PizzaAppDataAccess
                             command.Parameters.Add(propertyParametr);
                         }
                     
-                    }
-
-                  
-
+                    }                  
                     var affectedRows = command.ExecuteNonQuery();
                     if (affectedRows < 1) throw new Exception("No rows affected");
 

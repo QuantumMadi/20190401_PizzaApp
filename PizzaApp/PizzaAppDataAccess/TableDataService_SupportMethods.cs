@@ -35,19 +35,19 @@ namespace PizzaAppDataAccess
 
         private static string CreateSelectCommand(ref PropertyInfo[] properties)
         {
-            string selectCommand = "select ";
+            string selectCommand = "select *";
             Type type = typeof(T);
             
-            for(int i =0; i < properties.Length - 1; ++i)
-            {
-                selectCommand += properties[i];
-                if (properties[i] != properties[properties.Length - 1])
-                {
-                    selectCommand += ",";
-                }
-                else selectCommand += " ";               
-            }
-            return selectCommand += $"from {type.Name}s";
+            //for(int i =0; i < properties.Length - 1; ++i)
+            //{
+            //    selectCommand += properties[i].Name;
+            //    if (properties[i] != properties[properties.Length - 1])
+            //    {
+            //        selectCommand += ",";
+            //    }
+            //    else selectCommand += " ";               
+            //}
+            return selectCommand += $" from {type.Name}s";
         }
 
         private static SqlDbType SqlTypeIdentifier(Type parameterType)

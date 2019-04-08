@@ -15,28 +15,42 @@ namespace PizzaApp
     class Program
     {
         static void Main(string[] args)
-        { 
-            User newUser = new User()
+        {
+            User newUser = new User();
+            SmsSender smsSender = new SmsSender();
+
+            var usersTableData = new TableDataService<User>();
+            var pizzasTableData = new TableDataService<Pizza>();
+            var ordersTableData = new TableDataService<Order>();
+
+            Console.WriteLine("Insert your Name");
+            newUser.Name = Console.ReadLine();
+            Console.WriteLine("Insert your Address");
+
+            newUser.Address = Console.ReadLine();
+            Console.WriteLine("Insert your Number");
+
+            newUser.Number= Console.ReadLine();
+            var dBRegistration = new IntoDBRegistration<User>(newUser, usersTableData);
+            dBRegistration.SendMessage+=(message => smsSender.SendNotification(newUser.Number));
+
+            List<object> pizzas = pizzasTableData.GetAll();
+            foreach (var pizzaza in pizzasTableData.GetAll())
             {
-                Name = "Oleg",
-                Address = "Blah blah",
-                Number = "8282828282"
-            };
+                Console.WriteLine($"{((Pizza)pizzaza).Id} : {((Pizza)pizzaza).Name} : {((Pizza)pizzaza).Composition}");                
+            }
 
-            List<Product> pro = new List<Product>()
+            Console.WriteLine("Insert id of pizza you want");
+             var orderingPizzaId = int.Parse(Console.ReadLine());
+            
+            List<Pizza> pizzasForOrder = new List<Pizza>();
+            foreach (var pizza in pizzas)
             {
-                new Pizza("qwasde",1000,true,"qwe",true),
-                new Pizza("qdfsdfwe",1000,true,"qasfsd",true),
-                new Pizza("qweaqw",1500,true,"qwe",true),
-            };
-
-            Order order = new Order(pro, 1);
-
-            //Pizza pizza = new Pizza("Margaritta",1000,true,"asdawdawdaw",true);
-            TableDataService<Order> tableData = new TableDataService<Order>();
-
-            tableData.Add(order);
-
+                if (orderingPizzaId == ((Pizza)pizza).Id && ((Pizza)pizza).IsExists == true) { pizzasForOrder.Add(((Pizza)pizza)); }
+                
+            }
+            Order order = new Order(pizzasForOrder,newUser.Id);
+            ordersTableData.Add(order);
         }
     }
 }

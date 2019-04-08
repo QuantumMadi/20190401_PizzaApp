@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TableDataService_AddMethod.cs" />
-    <Compile Include="TableDataService_Main.cs" />
+    <Compile Include="TableDataService_GetAllMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableDataService_SupportMethods.cs" />
   </ItemGroup>

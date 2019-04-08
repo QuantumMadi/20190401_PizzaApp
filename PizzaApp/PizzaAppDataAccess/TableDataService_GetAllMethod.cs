@@ -15,32 +15,38 @@ namespace PizzaAppDataAccess
               // _connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\WWW\DOCUMENTS\GITHUB\20190401_PIZZAAPP\PIZZAAPP\PIZZAAPPDATAACCESS\PIZZAAPPNOTEBOOKDBCONTEXT.MDF;Integrated Security=True";
            // _connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\АбдигалиевМ.CORP.000\source\repos\20190401_PizzaApp\PizzaApp\PizzaAppDataAccess\PizzaApp.mdf;Integrated Security=True";
         }                   
-        public List<T> GetAll()
+        public List<object> GetAll()
         {
             Type itemType = typeof(T);
-            PropertyInfo[] properties = itemType.GetProperties(BindingFlags.Public);
+            PropertyInfo[] properties = itemType.GetProperties();
             object itemObject = Activator.CreateInstance(itemType);
 
-            var data = new List<T>();
+            ConstructorInfo constructor = itemType.GetConstructor(new Type[] { });
+            object itemExemplarObject;
+
+            var data = new List<object>();
             using (var connection = new SqlConnection(_connectionString))
             using (var command = connection.CreateCommand())
             {
                 try {
-                        SqlTransaction transaction = null;
-                        transaction = connection.BeginTransaction();
-                        command.Transaction = transaction;
+                        connection.Open();
                         command.CommandText = CreateSelectCommand(ref properties);
                         var dataReader = command.ExecuteReader();
                         while (dataReader.Read())
                         {
-                             foreach(var property in properties)
+                        itemExemplarObject = constructor.Invoke(new object[] { });
+                        foreach (var property in properties)
                             {
-                              Type propertyType = property.PropertyType;                             
-                              object propertyObj = Activator.CreateInstance(propertyType);  
-                              propertyObj = dataReader[$"{property.Name}"];                                                            
+                            
+                            Type propertyType = property.PropertyType;
+                              object obj = dataReader[$"{property.Name}"];
+                              property.SetValue(itemExemplarObject, obj);                                                                                     
                             }
+                        data.Add(itemExemplarObject);
+                        itemExemplarObject = null;
                         }
                     }
+                #region catch
                 catch (SqlException exeption)
                 {
                     //TODO обработка
@@ -52,6 +58,7 @@ namespace PizzaAppDataAccess
                     throw;
                 }
             }
+                 #endregion 
             return data;
         }
     }
