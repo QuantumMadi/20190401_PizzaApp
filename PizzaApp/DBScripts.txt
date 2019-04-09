@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[Orders]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [OrderingUserId] INT NOT NULL FOREIGN KEY ([OrderingUserId]) REFERENCES [dbo].[Users] (Id), 
-    [OrderingList] NVARCHAR(100) NOT NULL, 
+    [OrderingList] NVARCHAR(MAX) NOT NULL, 
     [OverallPrice ] INT NOT NULL,
 	[OrderDateTime] DATETIME NOT NULL
 )

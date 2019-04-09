@@ -12,7 +12,6 @@ namespace PizzaAppDataAccess
             Type type = typeof(T);
             PropertyInfo[] propertyInfo = type.GetProperties();
             StringBuilder commandString = new StringBuilder($"insert into {type.Name}s values(");
-
             for (int i = 0; i < propertyInfo.Length; ++i)
             {
                 if (propertyInfo[i].Name != "Id")
@@ -32,24 +31,6 @@ namespace PizzaAppDataAccess
             command = commandString.ToString();
             return propertyInfo;
         }
-
-        private static string CreateSelectCommand(ref PropertyInfo[] properties)
-        {
-            string selectCommand = "select *";
-            Type type = typeof(T);
-            
-            //for(int i =0; i < properties.Length - 1; ++i)
-            //{
-            //    selectCommand += properties[i].Name;
-            //    if (properties[i] != properties[properties.Length - 1])
-            //    {
-            //        selectCommand += ",";
-            //    }
-            //    else selectCommand += " ";               
-            //}
-            return selectCommand += $" from {type.Name}s";
-        }
-
         private static SqlDbType SqlTypeIdentifier(Type parameterType)
         {
             if (parameterType == typeof(int))
@@ -59,10 +40,9 @@ namespace PizzaAppDataAccess
             else if (parameterType == typeof(bool))
                 return SqlDbType.Bit;
             else if (parameterType == typeof(DateTime))
-                return SqlDbType.DateTime;
+                return SqlDbType.DateTime2;
             else
                 return SqlDbType.Xml; //заглушка
         }
-
     }
 }
