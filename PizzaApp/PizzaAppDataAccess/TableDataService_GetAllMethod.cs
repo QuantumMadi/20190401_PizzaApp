@@ -38,7 +38,7 @@ namespace PizzaAppDataAccess
                         foreach (var property in properties)
                             {
                             
-                            Type propertyType = property.PropertyType;
+                             Type propertyType = property.PropertyType;
                               object obj = dataReader[$"{property.Name}"];
                               property.SetValue(itemExemplarObject, obj);                                                                                     
                             }
