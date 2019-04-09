@@ -8,14 +8,14 @@ namespace Models
     {
         public int Id { get; set; }
         public int OrderingUserId { get; set; }
-        //public DateTime OrderDateTime { get; set; }
         public string OrderingList { get; set; }
         public int OverallPrice { get; set; }
+        public DateTime OrderDateTime { get; set; }            
         public Order() { }
         public Order(List<Pizza> products, int userId)
         {
             OrderingUserId = userId;
-           // OrderDateTime = DateTime.Now;
+            OrderDateTime = DateTime.Now;
             foreach (var product in products)
             {
                 OrderingList += $"{product.Name}";
