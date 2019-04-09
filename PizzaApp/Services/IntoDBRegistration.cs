@@ -20,9 +20,13 @@ namespace Services
         {
             Type type = typeof(T);
             usersTable.Add(user);
-            if (type.Name.ToString().ToLower() == "user") SendMessage(type.GetProperty("Number").GetValue(user).ToString());
+            if (type.Name.ToString().ToLower() == "user") SendMessage($"{GetRandom()}");
             else if (type.Name.ToString().ToLower() == "product") SendNotificationToAdmin("The product has added");          
-
+        }
+        private static int GetRandom()
+        {
+            var random = new Random();
+            return (random.Next() + 10000) % 1000;
         }
     }
 }

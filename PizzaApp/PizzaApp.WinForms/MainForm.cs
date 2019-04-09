@@ -10,17 +10,24 @@ using System.Windows.Forms;
 
 namespace PizzaApp.WinForms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+            Text = "Pizza Application";
+            BackColor = Color.CornflowerBlue;
+            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size(1000, 600);
+            //ForeColor = Color.Red;
+            Opacity = 100;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             RegistrationForm registrationForm = new RegistrationForm();
-            registrationForm.;
+            registrationForm.Show();
+          
         }
 
         private void button2_Click(object sender, EventArgs e)

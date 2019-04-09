@@ -11,7 +11,7 @@ namespace PizzaAppDataAccess
         public TableDataService()
         {
             // _connectionString = connectionString;
-            _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PizzaAppDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PizzaDB;Integrated Security=True";
               // _connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\WWW\DOCUMENTS\GITHUB\20190401_PIZZAAPP\PIZZAAPP\PIZZAAPPDATAACCESS\PIZZAAPPNOTEBOOKDBCONTEXT.MDF;Integrated Security=True";
            // _connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\АбдигалиевМ.CORP.000\source\repos\20190401_PizzaApp\PizzaApp\PizzaAppDataAccess\PizzaApp.mdf;Integrated Security=True";
         }                   
