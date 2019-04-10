@@ -16,7 +16,7 @@ namespace Models
         public Order(List<Pizza> products, int userId)
         {
             OrderingUserId = userId;
-        
+            OrderDateTime = DateTime.Now;
             foreach (var product in products)
             {
                 OrderingList += $"{product.Name}";

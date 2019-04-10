@@ -12,16 +12,15 @@ namespace Services
     public class IntoDBRegistration<T>
     {
         public delegate void UserAddNotificationHandler(string number);
-        public delegate void ProductAddNotificationHandler(string notificationText);
+       // public delegate void ProductAddNotificationHandler(string notificationText);
         public event UserAddNotificationHandler SendMessage;
-        public event ProductAddNotificationHandler SendNotificationToAdmin;
-
-        public IntoDBRegistration(T user, TableDataService<T> usersTable)
+        //public event ProductAddNotificationHandler SendNotificationToAdmin;
+        public void ItemRegister(T user, TableDataService<T> usersTable)
         {
             Type type = typeof(T);
             usersTable.Add(user);
             if (type.Name.ToString().ToLower() == "user") SendMessage($"{GetRandom()}");
-            else if (type.Name.ToString().ToLower() == "product") SendNotificationToAdmin("The product has added");          
+            //else SendNotificationToAdmin($"The {type.Name} has added");   
         }
         private static int GetRandom()
         {

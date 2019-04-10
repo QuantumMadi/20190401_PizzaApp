@@ -9,18 +9,18 @@ namespace PizzaApp.Services
     {      
         public void SendNotification(string number)
         {
-            Random random = new Random();
+            //Random random = new Random();
 
-            const string accountSid = "ACb0ce4eebe9bc3e3552877e74f8b1c4dc";
-            const string authToken = "5b099bd03e1e6c115edbb5faf75d5e49";
+            //const string accountSid = "ACb0ce4eebe9bc3e3552877e74f8b1c4dc";
+            //const string authToken = "5b099bd03e1e6c115edbb5faf75d5e49";
 
-            TwilioClient.Init(accountSid, authToken);
+            //TwilioClient.Init(accountSid, authToken);
 
-            var message = MessageResource.Create(
-                body: random.Next(999999).ToString(),
-                from: new Twilio.Types.PhoneNumber("+17152278964"),
-                to: new Twilio.Types.PhoneNumber(number)
-            );
+            //var message = MessageResource.Create(
+            //    body: random.Next(999999).ToString(),
+            //    from: new Twilio.Types.PhoneNumber("+17152278964"),
+            //    to: new Twilio.Types.PhoneNumber(number)
+            //);
         }
     }
 }

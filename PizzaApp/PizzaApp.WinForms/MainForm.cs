@@ -26,13 +26,13 @@ namespace PizzaApp.WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             RegistrationForm registrationForm = new RegistrationForm();
-            registrationForm.Show();
-          
+            registrationForm.Show();          
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            AuthentificationForm authentificationForm = new AuthentificationForm();
+            authentificationForm.Show();
         }
     }
 }

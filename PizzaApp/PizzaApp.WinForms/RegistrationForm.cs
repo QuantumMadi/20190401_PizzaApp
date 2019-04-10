@@ -31,13 +31,13 @@ namespace PizzaApp.WinForms
         }
         public RegistrationForm(MainForm mainForm)
         {
-            InitializeComponent();
-            
+            InitializeComponent();      
         }
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
-           
+            userDataService = new TableDataService<User>();
             smsSender = new SmsSender();
+            userRegistration = new IntoDBRegistration<User>();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,15 +47,15 @@ namespace PizzaApp.WinForms
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            userDataService = new TableDataService<User>();
-            var user = new User
+             var user = new User
             {
                 Name = txtName.Text,
                 Address = txtAddress.Text,
                 Number = txtNumber.Text,
             };
-            userRegistration = new IntoDBRegistration<User>(user,userDataService);
-            //userRegistration.SendMessage += (message => smsSender.SendNotification(user.Number));
-        }
+            userRegistration.SendMessage += (message => smsSender.SendNotification(user.Number));
+            userRegistration.ItemRegister(user, userDataService);
+            this.Close();
+        }   
     }
 }
