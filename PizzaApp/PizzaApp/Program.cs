@@ -62,9 +62,9 @@ namespace PizzaApp
             //var userService = new TableDataService<User>();
             //userService.Add(user);
 
-            //Pizza pizza = new Pizza("Diablo", 1500, true, "Potato, Tomato, chesse", true);
-            //var pizzaService = new TableDataService<Pizza>();
-            //pizzaService.Add(pizza);
+            Pizza pizza = new Pizza("Pacalony", 2000, true, "Potato, Tomato, chesse", true);
+            var pizzaService = new TableDataService<Pizza>();
+            pizzaService.Add(pizza);
 
 
             //Order order = new Order()
@@ -83,7 +83,7 @@ namespace PizzaApp
             //    Console.WriteLine(qw);
             //}
 
-            Console.ReadLine();
+           // Console.ReadLine();
         }
     }
 }
